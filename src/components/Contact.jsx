@@ -10,8 +10,8 @@ export default function Contact() {
     setResult("Sending...");
 
     const formData = new FormData(event.target);
-    // TODO: The client will receive the Access Key in their email. Paste it here!
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    // The client's Web3Forms Access Key
+    formData.append("access_key", "7970e923-d99f-4cee-af5b-34d959798e82");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
