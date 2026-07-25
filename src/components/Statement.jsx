@@ -9,16 +9,20 @@ export default function Statement() {
   const container = useRef();
   
   useGSAP(() => {
-    gsap.from('.statement-text', {
-      scrollTrigger: {
-        trigger: '.statement-section',
-        start: 'top 75%',
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    });
+    gsap.fromTo('.statement-text', 
+      { y: 50, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.statement-section',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out'
+      }
+    );
   }, { scope: container });
 
   return (
