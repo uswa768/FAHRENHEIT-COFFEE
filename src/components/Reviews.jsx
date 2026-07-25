@@ -67,7 +67,6 @@ export default function Reviews() {
               <p className="review-text">"{review.text}"</p>
               <div className="review-author">
                 <h4>{review.name}</h4>
-                <span>{review.meta}</span>
               </div>
             </div>
           ))}
