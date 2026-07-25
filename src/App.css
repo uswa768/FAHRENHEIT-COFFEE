@@ -138,6 +138,10 @@ a { text-decoration: none; color: inherit; }
   z-index: 2;
   pointer-events: none;
   will-change: transform;
+  top: var(--desktop-top, auto);
+  bottom: var(--desktop-bottom, auto);
+  left: var(--desktop-left, auto);
+  right: var(--desktop-right, auto);
 }
 .ingredient-img {
   width: var(--desktop-width);
@@ -277,6 +281,10 @@ a { text-decoration: none; color: inherit; }
   .hero-details { margin-top: -15vh; }
   .hero-details h2 { font-size: 4.5rem; }
   .hero-details p { font-size: 1rem; }
+
+  /* Push Ingredients to edges to avoid covering text */
+  .ingredient.is-bottom { bottom: 2% !important; top: auto !important; }
+  .ingredient.is-top { top: 2% !important; bottom: auto !important; }
 
   /* Ingredients Massively Scaled */
   .ingredient-img { 
