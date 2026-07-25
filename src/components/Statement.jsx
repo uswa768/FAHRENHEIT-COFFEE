@@ -13,7 +13,7 @@ export default function Statement() {
       { y: 50, opacity: 0 },
       {
         scrollTrigger: {
-          trigger: '.statement-section',
+          trigger: container.current,
           start: 'top 85%',
           toggleActions: 'play none none reverse'
         },
