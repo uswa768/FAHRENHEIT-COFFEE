@@ -377,6 +377,77 @@ a { text-decoration: none; color: inherit; }
   color: var(--bg-cream);
 }
 
+/* Reviews Section */
+.reviews-section {
+  padding: 15vh 0;
+  background-color: var(--accent-light); /* Soft contrast against the cream background */
+  color: var(--text-dark);
+  overflow: hidden;
+}
+.reviews-header {
+  text-align: center;
+  margin-bottom: 8vh;
+}
+.reviews-header h2 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%); /* Full bleed on screen */
+}
+.marquee-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 40s linear infinite;
+  padding: 20px 0;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.review-card {
+  flex: 0 0 400px;
+  background-color: var(--bg-cream);
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(44, 30, 22, 0.05);
+  transition: transform 0.3s ease;
+}
+.review-card:hover {
+  transform: translateY(-5px);
+}
+.stars {
+  color: #d4af37; /* Gold stars */
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.review-author h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.review-author span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); } /* Scrolls exactly half the track length */
+}
+
 /* Contact Section */
 .contact-section {
   padding: 15vh 0;
@@ -540,6 +611,10 @@ a { text-decoration: none; color: inherit; }
   /* Statement Section Mobile */
   .statement-section { padding: 15vh 0; }
   .statement-text { font-size: 2.5rem; }
+
+  /* Reviews Section Mobile */
+  .reviews-header h2 { font-size: 2.5rem; }
+  .review-card { flex: 0 0 300px; padding: 25px; }
 
   /* Contact Section Mobile */
   .contact-container { flex-direction: column; gap: 40px; }
