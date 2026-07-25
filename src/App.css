@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --bg-cream: #F6F1EB;
+  --text-dark: #2C1E16;
+  --accent-brown: #5C4033;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 30px 0;
+}
+.nav-content { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.logo h2 { font-size: 1.2rem; letter-spacing: 4px; font-family: 'Outfit', sans-serif; font-weight: 800; }
+.mobile-menu { display: none; cursor: pointer; color: var(--text-dark); }
+.nav-links { display: flex; gap: 40px; }
+.nav-links a { font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; transition: opacity 0.3s ease; }
+.nav-links a:hover { opacity: 0.5; }
+
+/* Cinematic Hero Slider */
+.hero-carousel {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--bg-cream);
+}
+
+/* Soft Golden Glow */
+.golden-glow {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(234, 215, 195, 0.6) 0%, rgba(246, 241, 235, 0) 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Huge Background Typography */
+.bg-title-container {
+  position: absolute;
+  top: 55%; 
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.bg-title {
+  font-size: var(--desktop-bg-size);
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--text-dark);
+  opacity: 0.08; 
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -2px; 
+  line-height: 0.8;
+}
+
+/* Ingredients & Positioning */
+.ingredients-container {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+.ingredient {
+  position: absolute;
+  filter: drop-shadow(0 20px 30px rgba(44, 30, 22, 0.25));
+  will-change: transform;
+}
+.ingredient img {
+  width: 8vw;
+  max-width: 120px;
+  height: auto;
+}
+
+/* Specific Positions */
+.pos-top-left { top: 15%; left: 10%; }
+.pos-top-right { top: 10%; right: 15%; }
+.pos-bottom-right { bottom: 15%; right: 10%; }
+.pos-left { bottom: 20%; left: 5%; }
+
+/* Coffee Powder */
+.powder-container {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none;
+}
+.coffee-powder {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #4A3324;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.6;
+  animation: floatPowder 10s infinite alternate ease-in-out;
+}
+@keyframes floatPowder {
+  100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+}
+
+/* Ingredients */
+.ingredient {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform;
+}
+.ingredient-img {
+  width: var(--desktop-width);
+  height: auto;
+}
+
+/* Cup Showcase */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.product-showcase {
+  position: relative;
+  will-change: transform;
+}
+
+.hero-product-img {
+  height: 90vh; /* Scale up dramatically to compensate for transparent padding in the image */
+  max-width: none;
+  object-fit: contain;
+  position: relative;
+  z-index: 10;
+  /* Realistic Premium Soft Shadow */
+  filter: drop-shadow(0 50px 60px rgba(44, 30, 22, 0.4)) drop-shadow(0 20px 20px rgba(44, 30, 22, 0.2));
+}
+
+/* Steam */
+.steam-container {
+  position: absolute;
+  top: 10%; /* Adjust steam position for massive cup */
+  left: 50%;
+  width: 100px; height: 100px;
+  z-index: 0;
+}
+.steam {
+  position: absolute;
+  width: 60px; height: 60px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(15px);
+  opacity: 0;
+}
+
+/* Details Below Cup */
+.hero-details {
+  margin-top: -25vh;
+  z-index: 100;
+  position: relative;
+  pointer-events: none;
+}
+.hero-details h2 {
+  font-size: 8rem; /* Much larger, serif title matching reference */
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -2px;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+  text-shadow: 0 4px 20px rgba(246, 241, 235, 0.8); /* Slight glow to ensure readability over cup */
+}
+.hero-details p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--accent-brown);
+  text-transform: uppercase;
+}
+
+/* About Section */
+.about-section {
+  padding: 20vh 0;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  position: relative;
+  z-index: 20;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.about-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+
+/* Masking for GSAP text reveal */
+.about-statement .line {
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+.about-statement .line span {
+  display: inline-block;
+}
+
+.about-details {
+  max-width: 500px;
+  margin-left: auto;
+}
+.about-details p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #4A3324;
+}
+
+@media (max-width: 768px) {
+  .nav-content { justify-content: center; }
+  .logo h2 { font-size: 1.1rem; }
+  .nav-links { display: none; }
+  .mobile-menu { display: block; position: absolute; right: 20px; }
+
+  /* Background Text */
+  .bg-title { font-size: 55vw !important; letter-spacing: -3px; }
+
+  /* Center Cup */
+  .hero-product-img { 
+    height: 60vh; 
+    max-width: none;
+  }
+
+  /* Details overlap */
+  .hero-details { margin-top: -15vh; }
+  .hero-details h2 { font-size: 4.5rem; }
+  .hero-details p { font-size: 1rem; }
+
+  /* Ingredients Massively Scaled */
+  .ingredient-img { 
+    width: calc(var(--desktop-width) * 1.5) !important;
+  }
+  
+  .golden-glow { width: 100vw; height: 100vw; }
+
+  /* About Section Mobile */
+  .about-section { padding: 10vh 0; }
+  .about-statement { font-size: 2.5rem; }
+  .about-details { margin-left: 0; margin-top: 20px; }
+}
